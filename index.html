@@ -89,7 +89,8 @@
           score++;
           scoreDisplay.innerText = "Skor: " + score;
           sounds.correct.play();
-          speakText("        Therrrbaik!");
+          setTimeout(speakText("Therrrbaik!"), 3000);
+          //speakText("Therrrbaik!");
           resultDisplay.innerHTML = `✔️ Betul! Anda sebut: "${spoken}"`;
           currentIndex++;
           if (currentIndex < words.length) {
