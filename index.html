@@ -88,7 +88,7 @@
         if (spoken === target) {
           score++;
           scoreDisplay.innerText = "Skor: " + score;
-          //sounds.correct.play();
+          sounds.correct.play();
          
           speakText("Therrrbaik!");
           resultDisplay.innerHTML = `✔️ Betul! Anda sebut: "${spoken}"`;
@@ -105,7 +105,7 @@
           }
         } else {
           sounds.wrong.play();
-          speakText("Cuba lagi");
+          speakText("Chuba lhagi");
           resultDisplay.innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi!`;
         }
       };
