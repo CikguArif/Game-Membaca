@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Membaca Ceria</title>
+  <style>
+    body {
+      font-family: Comic Sans MS, cursive, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #e0f7fa, #ffe0b2);
+      padding: 50px;
+    }
+    .word {
+      font-size: 70px;
+      margin: 40px 0;
+      color: #2e7d32;
+    }
+    button {
+      padding: 15px 40px;
+      font-size: 24px;
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f4511e;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+    #score {
+      margin-top: 30px;
+      font-size: 28px;
+      color: #00695c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Game Membaca Ceria 🎉</h1>
+  <div class="word" id="wordDisplay">mula</div>
+  <button onclick="startReading()">🎤 Mula Baca</button>
+  <div id="result">Tekan "Mula Baca" dan sebut perkataan dengan kuat.</div>
+  <div id="score">Skor: 0</div>
+
+  <script>
+    const words = ["matahari", "bunga", "kereta", "kucing", "pokok"];
+    let currentIndex = 0;
+    let score = 0;
+
+    const wordDisplay = document.getElementById("wordDisplay");
+    const resultDisplay = document.getElementById("result");
+    const scoreDisplay = document.getElementById("score");
+
+    const sounds = {
+      correct: new Audio("https://www.soundjay.com/buttons/sounds/button-4.mp3"),
+      wrong: new Audio("https://www.soundjay.com/button/sounds/button-10.mp3"),
+      finish: new Audio("https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3")
+    };
+
+    function speakText(text) {
+      const msg = new SpeechSynthesisUtterance(text);
+      msg.lang = "ms-MY";
+      speechSynthesis.speak(msg);
+    }
+
+    function startReading() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert("Sila guna Google Chrome untuk bermain.");
+        return;
+      }
+
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "ms-MY";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+      resultDisplay.innerText = "🎧 Mendengar bacaan anda...";
+
+      recognition.onresult = (event) => {
+        const spoken = event.results[0][0].transcript.toLowerCase().trim();
+        const target = words[currentIndex];
+
+        if (spoken === target) {
+          score++;
+          scoreDisplay.innerText = "Skor: " + score;
+          sounds.correct.play();
+          speakText("Bagus!");
+          resultDisplay.innerHTML = `✔️ Betul! Anda sebut: "${spoken}"`;
+          currentIndex++;
+          if (currentIndex < words.length) {
+            setTimeout(() => {
+              wordDisplay.innerText = words[currentIndex];
+              resultDisplay.innerText = "Sebut perkataan di atas.";
+            }, 1500);
+          } else {
+            sounds.finish.play();
+            wordDisplay.innerText = "🎉 Tamat!";
+            resultDisplay.innerHTML = `Skor akhir anda: ${score} / ${words.length}<br>Tahniah!`;
+          }
+        } else {
+          sounds.wrong.play();
+          speakText("Cuba lagi");
+          resultDisplay.innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi!`;
+        }
+      };
+
+      recognition.onerror = (event) => {
+        resultDisplay.innerText = "Ralat: Sila cuba semula.";
+      };
+    }
+
+    // Mula dengan perkataan pertama
+    wordDisplay.innerText = words[currentIndex];
+  </script>
+
+</body>
+</html>
