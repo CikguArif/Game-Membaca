@@ -2,7 +2,7 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <title>Game Membaca Cikgu Arif</title>
+  <title>Mari Membaca</title>
   <style>
     body {
       font-family: Comic Sans MS, cursive, sans-serif;
@@ -40,7 +40,7 @@
 </head>
 <body>
 
-  <h1>🎉 Game Membaca Ceria 🎉</h1>
+  <h1>🎉 Game Membaca Cikgu Arif 🎉</h1>
   <div class="word" id="wordDisplay">mula</div>
   <button onclick="startReading()">🎤 Mula Baca</button>
   <div id="result">Tekan "Mula Baca" dan sebut perkataan dengan kuat.</div>
@@ -89,7 +89,7 @@
           score++;
           scoreDisplay.innerText = "Skor: " + score;
           sounds.correct.play();
-          speakText("Bagus!");
+          speakText("Bhagust!");
           resultDisplay.innerHTML = `✔️ Betul! Anda sebut: "${spoken}"`;
           currentIndex++;
           if (currentIndex < words.length) {
