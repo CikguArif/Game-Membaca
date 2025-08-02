@@ -1,5 +1,5 @@
-ba
-bi
+ba ba
+bi ba
 be
 be
 bo
