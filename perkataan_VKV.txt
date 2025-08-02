@@ -7,7 +7,7 @@ abi
 alu
 uli
 aki
-Ini jari
-Ini jari Fara
-Jari Fara kena duri
-Jari Fara luka kena duri
+ini jari
+ini jari Fara
+jari Fara kena duri
+jari Fara luka kena duri
