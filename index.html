@@ -86,7 +86,7 @@
         const sukuKata = spoken.slice(0, 2);
         const target = words[currentIndex];
 
-        
+        /*
         if (sukuKata === "ba") {
           //spoken = "ba ba";
           //alert("Betul h!");
@@ -98,8 +98,7 @@
         } else {
 
         }
-        
-
+        */
         
         if (sukuKata === target) {
           score++;
@@ -111,11 +110,11 @@
             setTimeout(() => {
 
               if (words[currentIndex] === "b") {
-                alert("currentindex=b!");
+               
                 document.getElementById("wordDisplay").innerText = words[currentIndex] + "i";
     
               }else{
-                alert("currentindex not b!");
+               
                 document.getElementById("wordDisplay").innerText = words[currentIndex];
               }
               
@@ -139,6 +138,7 @@
 
 </body>
 </html>
+
 
 
 
