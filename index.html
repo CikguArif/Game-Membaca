@@ -54,12 +54,13 @@
         if (words.length > 0) {
 
           if (words[currentIndex] === "b") {
-
+            alert("currentindex=b!");
             document.getElementById("wordDisplay").innerText = words[currentIndex] + "i";
 
           }else{
             document.getElementById("wordDisplay").innerText = words[currentIndex];
           }
+          
           document.getElementById("game").style.display = "block";
         } else {
           alert("Fail perkataan kosong.");
@@ -136,6 +137,7 @@
 
 </body>
 </html>
+
 
 
 
