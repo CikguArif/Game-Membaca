@@ -85,6 +85,7 @@
         const sukuKata = spoken.slice(0, 2);
         const target = words[currentIndex];
 
+        /*
         if (sukuKata === "ba") {
           spoken = sukuKata;
          // alert("Betul!");
@@ -95,13 +96,13 @@
         } else {
 
         }
-        
+        */
 
         
-        if (spoken === target) {
+        if (sukuKata === target) {
           score++;
           document.getElementById("score").innerText = "Skor: " + score;
-          document.getElementById("result").innerHTML = `✔️ Betul: "${spoken}"`;
+          document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata}"`;
           currentIndex++;
 
           if (currentIndex < words.length) {
@@ -114,7 +115,7 @@
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
           }
         } else {
-          document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
+          document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
          // document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
         }
       };
@@ -127,6 +128,7 @@
 
 </body>
 </html>
+
 
 
 
