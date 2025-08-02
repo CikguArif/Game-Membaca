@@ -70,7 +70,8 @@
       }
 
       const recognition = new webkitSpeechRecognition();
-      recognition.lang = "ms-MY";
+      //recognition.lang = "ms-MY";
+      recognition.lang = "en-US";  // English (United States)
       
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
@@ -122,6 +123,7 @@
 
 </body>
 </html>
+
 
 
 
