@@ -1,7 +1,5 @@
-ba bi be
-be bo bu
-ca ci ce
-ce co cu
+ba
+bi
 baba beli bola
 bibi baju baru
 bibi baru beli
