@@ -32,7 +32,7 @@
 </head>
 <body>
 
-  <h1>📄Membaca KV+KV 📄</h1>
+  <h1>📄Membaca KV 📄</h1>
 
   <div id="game" style="display:none;">
     <div class="word" id="wordDisplay"></div>
@@ -52,7 +52,14 @@
       .then(text => {
         words = text.split(/\r?\n/).filter(Boolean);
         if (words.length > 0) {
-          document.getElementById("wordDisplay").innerText = words[currentIndex];
+
+          if (words[currentIndex] === "b") {
+
+            document.getElementById("wordDisplay").innerText = words[currentIndex] + "i";
+
+          }else{
+            document.getElementById("wordDisplay").innerText = words[currentIndex];
+          }
           document.getElementById("game").style.display = "block";
         } else {
           alert("Fail perkataan kosong.");
@@ -129,6 +136,7 @@
 
 </body>
 </html>
+
 
 
 
