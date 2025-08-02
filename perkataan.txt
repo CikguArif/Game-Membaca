@@ -1,15 +1,7 @@
-ba
-bi
-be`
-be
-bo
-bu
-ca
-ci
-ce` 
-ce
-co
-cu
+ba bi be`
+be bo bu
+ca ci ce`
+ce co cu
 baba beli bola
 bibi baju baru
 bibi baru beli
