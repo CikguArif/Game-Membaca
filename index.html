@@ -70,9 +70,9 @@
       }
 
       const recognition = new webkitSpeechRecognition();
-      //recognition.lang = "ms-MY";
+      recognition.lang = "ms-MY";
       //recognition.lang = "en-US";  // English (United States)
-      recognition.lang = "ar-SA";
+      //recognition.lang = "ar-SA";
       
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
@@ -82,6 +82,7 @@
 
       recognition.onresult = (event) => {
         const spoken = event.results[0][0].transcript.toLowerCase().trim();
+        const sukuKata = spoken.slice(0, 2);
         const target = words[currentIndex];
 /*
         if (spoken === "bar") {
@@ -113,7 +114,8 @@
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
           }
         } else {
-          document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
+          //document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
+          document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
         }
       };
 
@@ -125,6 +127,7 @@
 
 </body>
 </html>
+
 
 
 
