@@ -2,74 +2,70 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <title>Mari Membaca</title>
+  <title>Game Membaca (Auto Baca TXT)</title>
   <style>
     body {
-      font-family: Comic Sans MS, cursive, sans-serif;
+      font-family: Comic Sans MS, sans-serif;
       text-align: center;
-      background: linear-gradient(to right, #e0f7fa, #ffe0b2);
-      padding: 50px;
+      background: #e0f7fa;
+      padding: 30px;
     }
     .word {
-      font-size: 70px;
-      margin: 40px 0;
+      font-size: 60px;
+      margin: 20px;
       color: #2e7d32;
     }
     button {
-      padding: 15px 40px;
-      font-size: 24px;
-      background-color: #ff7043;
+      padding: 10px 25px;
+      font-size: 20px;
+      background-color: #039be5;
       color: white;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #f4511e;
-    }
-    #result {
+    #result, #score {
       margin-top: 20px;
-      font-size: 24px;
-    }
-    #score {
-      margin-top: 30px;
-      font-size: 28px;
-      color: #00695c;
+      font-size: 22px;
     }
   </style>
 </head>
 <body>
 
-  <h1>🎉 Game Membaca Cikgu Arif 🎉</h1>
-  <div class="word" id="wordDisplay">mula</div>
-  <button onclick="startReading()">🎤 Mula Baca</button>
-  <div id="result">Tekan "Mula Baca" dan sebut perkataan dengan kuat.</div>
-  <div id="score">Skor: 0</div>
+  <h1>📄 Game Membaca Perkataan (Auto Load)</h1>
+
+  <div id="game" style="display:none;">
+    <div class="word" id="wordDisplay"></div>
+    <button onclick="startReading()">🎤 Mula Baca</button>
+    <div id="result"></div>
+    <div id="score">Skor: 0</div>
+  </div>
 
   <script>
-    const words = ["matahari", "bunga", "kereta", "kucing", "pokok"];
+    let words = [];
     let currentIndex = 0;
     let score = 0;
 
-    const wordDisplay = document.getElementById("wordDisplay");
-    const resultDisplay = document.getElementById("result");
-    const scoreDisplay = document.getElementById("score");
-
-    const sounds = {
-      correct: new Audio("https://www.soundjay.com/buttons/sounds/button-4.mp3"),
-      wrong: new Audio("https://www.soundjay.com/button/sounds/button-10.mp3"),
-      finish: new Audio("https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3")
-    };
-
-    function speakText(text) {
-      const msg = new SpeechSynthesisUtterance(text);
-      msg.lang = "ms-MY";
-      speechSynthesis.speak(msg);
-    }
+    // Auto load txt file on page load
+    fetch("perkataan.txt")
+      .then(response => response.text())
+      .then(text => {
+        words = text.split(/\r?\n/).filter(Boolean);
+        if (words.length > 0) {
+          document.getElementById("wordDisplay").innerText = words[currentIndex];
+          document.getElementById("game").style.display = "block";
+        } else {
+          alert("Fail perkataan kosong.");
+        }
+      })
+      .catch(err => {
+        alert("Gagal baca fail 'perkataan.txt'");
+        console.error(err);
+      });
 
     function startReading() {
       if (!('webkitSpeechRecognition' in window)) {
-        alert("Sila guna Google Chrome untuk bermain.");
+        alert("Sila guna Google Chrome.");
         return;
       }
 
@@ -79,7 +75,7 @@
       recognition.maxAlternatives = 1;
 
       recognition.start();
-      resultDisplay.innerText = "🎧 Mendengar bacaan anda...";
+      document.getElementById("result").innerText = "🎧 Mendengar...";
 
       recognition.onresult = (event) => {
         const spoken = event.results[0][0].transcript.toLowerCase().trim();
@@ -87,36 +83,28 @@
 
         if (spoken === target) {
           score++;
-          scoreDisplay.innerText = "Skor: " + score;
-          sounds.correct.play();
-         
-          speakText("Therrrbaik!");
-          resultDisplay.innerHTML = `✔️ Betul! Anda sebut: "${spoken}"`;
+          document.getElementById("score").innerText = "Skor: " + score;
+          document.getElementById("result").innerHTML = `✔️ Betul: "${spoken}"`;
           currentIndex++;
+
           if (currentIndex < words.length) {
             setTimeout(() => {
-              wordDisplay.innerText = words[currentIndex];
-              resultDisplay.innerText = "Sebut perkataan di atas.";
-            }, 1500);
+              document.getElementById("wordDisplay").innerText = words[currentIndex];
+              document.getElementById("result").innerText = "";
+            }, 1200);
           } else {
-            sounds.finish.play();
-            wordDisplay.innerText = "🎉 Tamat!";
-            resultDisplay.innerHTML = `Skor akhir anda: ${score} / ${words.length}<br>Tahniah!`;
+            document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
+            document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
           }
         } else {
-          sounds.wrong.play();
-          speakText("Chuba lhagi");
-          resultDisplay.innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi!`;
+          document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
         }
       };
 
-      recognition.onerror = (event) => {
-        resultDisplay.innerText = "Ralat: Sila cuba semula.";
+      recognition.onerror = () => {
+        document.getElementById("result").innerText = "Ralat semasa mendengar.";
       };
     }
-
-    // Mula dengan perkataan pertama
-    wordDisplay.innerText = words[currentIndex];
   </script>
 
 </body>
