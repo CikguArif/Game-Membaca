@@ -52,16 +52,8 @@
       .then(text => {
         words = text.split(/\r?\n/).filter(Boolean);
         if (words.length > 0) {
-
-          if (words[currentIndex] === "b") {
-            alert("currentindex=b!");
-            document.getElementById("wordDisplay").innerText = words[currentIndex] + "i";
-
-          }else{
-            alert("currentindex not b!");
-            document.getElementById("wordDisplay").innerText = words[currentIndex];
-          }
-          
+                    
+          document.getElementById("wordDisplay").innerText = words[currentIndex];
           document.getElementById("game").style.display = "block";
         } else {
           alert("Fail perkataan kosong.");
@@ -117,7 +109,16 @@
 
           if (currentIndex < words.length) {
             setTimeout(() => {
-              document.getElementById("wordDisplay").innerText = words[currentIndex];
+
+              if (words[currentIndex] === "b") {
+                alert("currentindex=b!");
+                document.getElementById("wordDisplay").innerText = words[currentIndex] + "i";
+    
+              }else{
+                alert("currentindex not b!");
+                document.getElementById("wordDisplay").innerText = words[currentIndex];
+              }
+              
               document.getElementById("result").innerText = "";
             }, 1200);
           } else {
@@ -138,6 +139,7 @@
 
 </body>
 </html>
+
 
 
 
