@@ -82,16 +82,12 @@
         const spoken = event.results[0][0].transcript.toLowerCase().trim();
         const target = words[currentIndex];
 
-        if (spoken === "bar") {
-          spoken ="ba";
+        if (spoken === "baby bear") {
+          spoken ="ba bi be`";
 
         }
+
         
-        if (spoken === "b") {
-          spoken ="bi";
-
-        } 
-
         if (spoken === target) {
           score++;
           document.getElementById("score").innerText = "Skor: " + score;
@@ -120,6 +116,7 @@
 
 </body>
 </html>
+
 
 
 
