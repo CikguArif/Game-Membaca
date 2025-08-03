@@ -84,6 +84,7 @@
       recognition.onresult = (event) => {
         const spoken = event.results[0][0].transcript.toLowerCase().trim();
         const sukuKata = spoken.slice(0, 2);
+        const sukuKata3 = spoken.slice(0, 3);
         const target = words[currentIndex];
 
         /*
@@ -135,7 +136,47 @@
             document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
           }
-        } else {
+        }else if (sukuKata3 === target) {
+          /////////////////////////////////////////////////sukuKata3/////////////
+          score++;
+          document.getElementById("score").innerText = "Skor: " + score;
+
+          if (words[currentIndex] === "cha") {
+            document.getElementById("result").innerHTML = `✔️ Betul: ca`;
+          }else{
+            document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata}"`;
+
+          }
+          currentIndex++;
+
+          if (currentIndex < words.length) {
+            setTimeout(() => {
+
+              if (words[currentIndex] === "cha") {
+               
+                document.getElementById("wordDisplay").innerText = "ca";
+    
+              }else{
+               
+                document.getElementById("wordDisplay").innerText = words[currentIndex];
+              }
+
+              if (currentIndex === 2 ) {
+                  document.getElementById("wordDisplay").innerText = words[currentIndex] + "~";
+              }
+
+                
+              document.getElementById("result").innerText = "";
+            }, 1200);
+          } else {
+            document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
+            document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
+          }
+
+          //////////////////////////////////////////////////////////////////////sukuKata3/////////////
+
+        }     
+        else {
           document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
          // document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
         }
@@ -149,6 +190,7 @@
 
 </body>
 </html>
+
 
 
 
