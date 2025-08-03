@@ -39,6 +39,8 @@
     <button onclick="startReading()" id="sebutButang">🎤 Mula Baca</button>
     <div id="result"></div>
     <div id="score">Skor: 0</div>
+    <br>
+    <a href="https://cikguarif.github.io/Game-Membaca/membacaVKV" id="pautan" style="display: none;">Klik sini untuk membaca VKV</a>
   </div>
 
   <script>
@@ -145,6 +147,7 @@
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
             document.getElementById("sebutButang").disabled = true;
             document.getElementById("sebutButang").innerText = "Terima Kasih";
+            document.getElementById("pautan").style.display = "inline";
           }
         }else if (sukuKata3 === target) {
           /////////////////////////////////////////////////sukuKata3/////////////
@@ -201,6 +204,7 @@
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
             document.getElementById("sebutButang").disabled = true;
             document.getElementById("sebutButang").innerText = "Terima Kasih";
+            document.getElementById("pautan").style.display = "inline";
           }
 
           //////////////////////////////////////////////////////////////////////sukuKata3/////////////
@@ -221,6 +225,7 @@
 
 </body>
 </html>
+
 
 
 
