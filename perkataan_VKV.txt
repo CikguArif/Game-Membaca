@@ -8,6 +8,6 @@ alu
 uli
 aki
 ini jari
-ini jari fara
-jari fara kena duri
-jari fara luka kena duri
+ini jari aji
+jari aji kena duri
+jari aji luka kena duri
