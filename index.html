@@ -83,6 +83,10 @@
 
       recognition.onresult = (event) => {
         const spoken = event.results[0][0].transcript.toLowerCase().trim();
+
+        if (spoken === "cu"){
+          spoken = "chu";
+        }
         const sukuKata = spoken.slice(0, 2);
         const sukuKata3 = spoken.slice(0, 3);
         const target = words[currentIndex];
@@ -217,6 +221,7 @@
 
 </body>
 </html>
+
 
 
 
