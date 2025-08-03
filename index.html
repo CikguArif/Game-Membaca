@@ -168,16 +168,18 @@
     
               }else if(words[currentIndex] === "che"){
 
+                if (currentIndex === 9 ) {
+                  document.getElementById("wordDisplay").innerText = "ce’";
+                }else{
                  document.getElementById("wordDisplay").innerText = "ce";
-                             
+                }
+                
               }else{
                
                 document.getElementById("wordDisplay").innerText = words[currentIndex];
               }
 
-              if (currentIndex === 9 ) {
-                  document.getElementById("wordDisplay").innerText = words[currentIndex] + "’";
-              }
+              
 
                 
               document.getElementById("result").innerText = "";
@@ -204,6 +206,7 @@
 
 </body>
 </html>
+
 
 
 
