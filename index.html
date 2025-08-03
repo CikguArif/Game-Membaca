@@ -145,8 +145,12 @@
 
           if (words[currentIndex] === "cha") {
             document.getElementById("result").innerHTML = `✔️ Betul: ca`;
+          }else if(words[currentIndex] === "chi"){
+
+            document.getElementById("result").innerHTML = `✔️ Betul: ci`;
+                             
           }else{
-            document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata3}"`;
+            //document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata3}"`;
 
           }
           currentIndex++;
@@ -158,13 +162,17 @@
                
                 document.getElementById("wordDisplay").innerText = "ci";
     
+              }else if(words[currentIndex] === "che"){
+
+                 document.getElementById("wordDisplay").innerText = "ce";
+                             
               }else{
                
                 document.getElementById("wordDisplay").innerText = words[currentIndex];
               }
 
-              if (currentIndex === 8 ) {
-                  document.getElementById("wordDisplay").innerText = words[currentIndex] + "~";
+              if (currentIndex === 9 ) {
+                  document.getElementById("wordDisplay").innerText = words[currentIndex] + "’";
               }
 
                 
@@ -192,6 +200,7 @@
 
 </body>
 </html>
+
 
 
 
