@@ -139,6 +139,8 @@
           } else {
             document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
+            document.getElementById("sebutButang").disabled = true;
+            document.getElementById("sebutButang").innerText = "Terima Kasih";
           }
         }else if (sukuKata3 === target) {
           /////////////////////////////////////////////////sukuKata3/////////////
@@ -193,7 +195,8 @@
           } else {
             document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
-            document.getElementById("sebutButang").disabled = false;
+            document.getElementById("sebutButang").disabled = true;
+            document.getElementById("sebutButang").innerText = "Terima Kasih";
           }
 
           //////////////////////////////////////////////////////////////////////sukuKata3/////////////
@@ -214,6 +217,7 @@
 
 </body>
 </html>
+
 
 
 
