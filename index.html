@@ -104,13 +104,15 @@
         if (sukuKata === target) {
           score++;
           document.getElementById("score").innerText = "Skor: " + score;
-
+          document.getElementById("result").innerHTML = `✔️ Betul`;
+          /*
           if (words[currentIndex] === "b") {
             document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata}i"`;
           }else{
             document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata}"`;
 
           }
+          */
           currentIndex++;
 
           if (currentIndex < words.length) {
@@ -142,7 +144,8 @@
           /////////////////////////////////////////////////sukuKata3/////////////
           score++;
           document.getElementById("score").innerText = "Skor: " + score;
-
+          document.getElementById("result").innerHTML = `✔️ Betul`;
+          /*
           if (words[currentIndex] === "cha") {
             document.getElementById("result").innerHTML = `✔️ Betul: ca`;
           }else if(words[currentIndex] === "chi"){
@@ -153,6 +156,7 @@
             //document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata3}"`;
 
           }
+          */
           currentIndex++;
 
           if (currentIndex < words.length) {
@@ -200,6 +204,7 @@
 
 </body>
 </html>
+
 
 
 
