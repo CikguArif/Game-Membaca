@@ -36,7 +36,7 @@
 
   <div id="game" style="display:none;">
     <div class="word" id="wordDisplay"></div>
-    <button onclick="startReading()">🎤 Mula Baca</button>
+    <button onclick="startReading()" id="sebutButang">🎤 Mula Baca</button>
     <div id="result"></div>
     <div id="score">Skor: 0</div>
   </div>
@@ -193,6 +193,7 @@
           } else {
             document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
+            document.getElementById("sebutButang").disabled = false;
           }
 
           //////////////////////////////////////////////////////////////////////sukuKata3/////////////
@@ -200,6 +201,7 @@
         }     
         else {
           document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
+          
          // document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
         }
       };
@@ -212,6 +214,7 @@
 
 </body>
 </html>
+
 
 
 
