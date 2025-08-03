@@ -84,7 +84,7 @@
       document.getElementById("result").innerText = "🎧 Mendengar...";
 
       recognition.onresult = (event) => {
-        const spoken = event.results[0][0].transcript.toLowerCase().trim();
+        let spoken = event.results[0][0].transcript.toLowerCase().trim();
 
         if (spoken === "cu"){
           spoken = "chu";
@@ -225,6 +225,7 @@
 
 </body>
 </html>
+
 
 
 
