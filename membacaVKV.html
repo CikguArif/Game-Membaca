@@ -95,6 +95,7 @@
 
         if (spoken === target) {
           score++;
+          sounds.correct.play();
           document.getElementById("score").innerText = "Skor: " + score;
           document.getElementById("result").innerHTML = `✔️ Betul: "${spoken}"`;
           currentIndex++;
@@ -123,6 +124,7 @@
 
 </body>
 </html>
+
 
 
 
