@@ -48,6 +48,12 @@
     let currentIndex = 0;
     let score = 0;
 
+    const sounds = {
+      correct: new Audio("sound/right.mp3"),
+      wrong: new Audio("sound/wrong.mp3"),
+      finish: new Audio("sound/win.wav")
+    };
+
     // Auto load txt file on page load
     fetch("perkataan.txt")
       .then(response => response.text())
@@ -109,6 +115,7 @@
         
         if (sukuKata === target) {
           score++;
+          sounds.correct.play();
           document.getElementById("score").innerText = "Skor: " + score;
           document.getElementById("result").innerHTML = `✔️ Betul`;
           /*
@@ -152,6 +159,7 @@
         }else if (sukuKata3 === target) {
           /////////////////////////////////////////////////sukuKata3/////////////
           score++;
+          sounds.correct.play();
           document.getElementById("score").innerText = "Skor: " + score;
           document.getElementById("result").innerHTML = `✔️ Betul`;
           /*
