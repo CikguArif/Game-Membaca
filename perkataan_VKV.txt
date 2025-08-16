@@ -2,9 +2,11 @@ abi
 alu
 api
 aki
+eni
 ibu
 itu
 ini
-ola
+oni
+opu
 ubi
 uli
