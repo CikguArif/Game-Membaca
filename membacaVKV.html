@@ -46,6 +46,12 @@
     let currentIndex = 0;
     let score = 0;
 
+    const sounds = {
+      correct: new Audio("sound/right.mp3"),
+      wrong: new Audio("sound/wrong.mp3"),
+      finish: new Audio("sound/win.wav")
+    };
+
     // Auto load txt file on page load
     fetch("perkataan_VKV.txt")
       .then(response => response.text())
@@ -111,6 +117,7 @@
 
 </body>
 </html>
+
 
 
 
