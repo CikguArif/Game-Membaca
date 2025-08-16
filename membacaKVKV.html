@@ -100,12 +100,14 @@
               document.getElementById("result").innerText = "";
             }, 1200);
           } else {
+            sounds.finish.play();
             document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
             document.getElementById("sebutButang").disabled = true;
             document.getElementById("sebutButang").innerText = "Terima Kasih";
           }
         } else {
+          sounds.wrong.play();
           document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
         }
       };
