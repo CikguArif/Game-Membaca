@@ -150,6 +150,7 @@
               document.getElementById("result").innerText = "";
             }, 1200);
           } else {
+            sounds.finish.play();
             document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
             document.getElementById("sebutButang").disabled = true;
@@ -208,6 +209,7 @@
               document.getElementById("result").innerText = "";
             }, 1200);
           } else {
+            sounds.finish.play();
             document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
             document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
             document.getElementById("sebutButang").disabled = true;
@@ -219,6 +221,7 @@
 
         }     
         else {
+          sounds.wrong.play();
           document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
           
          // document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
