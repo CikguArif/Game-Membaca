@@ -1,12 +1,12 @@
 abi
 alu
 api
-ele
-ema
+ero
+ena
 ibu
 itu
 ini
 ola
-oma
+opa
 ubi
 uli
