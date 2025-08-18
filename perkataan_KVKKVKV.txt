@@ -7,4 +7,4 @@ gembira
 ternama
 cendana
 sendiri
-mentera
+mantera
