@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>KVKVK</title>
+  <style>
+    body {
+      font-family: Comic Sans MS, sans-serif;
+      text-align: center;
+      background: #e0f7fa;
+      padding: 30px;
+    }
+    .word {
+      font-size: 60px;
+      margin: 20px;
+      color: #2e7d32;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 20px;
+      background-color: #039be5;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #result, #score {
+      margin-top: 20px;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📄 Membaca Perkataan KVKVK 📄</h1>
+
+  <div id="game" style="display:none;">
+    <div class="word" id="wordDisplay"></div>
+    <button onclick="startReading()" id="sebutButang">🎤 Mula Baca</button>
+    <div id="result"></div>
+    <div id="score">Skor: 0</div>
+    <br>
+    <a href="https://cikguarif.github.io/Game-Membaca/membacaKVKKKV" id="pautan" style="display: none;">Klik sini untuk membaca KVKKKV</a>
+  </div>
+
+  <script>
+    let words = [];
+    let currentIndex = 0;
+    let score = 0;
+
+    const sounds = {
+      correct: new Audio("sound/right.mp3"),
+      wrong: new Audio("sound/wrong.mp3"),
+      finish: new Audio("sound/win.wav")
+    };
+    
+    // Auto load txt file on page load
+    fetch("perkataan_KVKVK.txt")
+      .then(response => response.text())
+      .then(text => {
+        words = text.split(/\r?\n/).filter(Boolean);
+        if (words.length > 0) {
+          document.getElementById("wordDisplay").innerText = words[currentIndex];
+          document.getElementById("game").style.display = "block";
+        } else {
+          alert("Fail perkataan kosong.");
+        }
+      })
+      .catch(err => {
+        alert("Gagal baca fail 'perkataan.txt'");
+        console.error(err);
+      });
+
+    function startReading() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert("Sila guna Google Chrome.");
+        return;
+      }
+
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "ms-MY";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+      document.getElementById("result").innerText = "🎧 Mendengar...";
+
+      recognition.onresult = (event) => {
+        const spoken = event.results[0][0].transcript.toLowerCase().trim();
+        const target = words[currentIndex];
+
+        if (spoken === target) {
+          score++;
+          sounds.correct.play();
+          document.getElementById("score").innerText = "Skor: " + score;
+          document.getElementById("result").innerHTML = `✔️ Betul: "${spoken}"`;
+          currentIndex++;
+
+          if (currentIndex < words.length) {
+            setTimeout(() => {
+              document.getElementById("wordDisplay").innerText = words[currentIndex];
+              document.getElementById("result").innerText = "";
+            }, 1200);
+          } else {
+            sounds.finish.play();
+            document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
+            document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
+            document.getElementById("sebutButang").disabled = true;
+            document.getElementById("sebutButang").innerText = "Terima Kasih";
+            document.getElementById("pautan").style.display = "inline";
+          }
+        } else {
+          sounds.wrong.play();
+          document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
+        }
+      };
+
+      recognition.onerror = () => {
+        document.getElementById("result").innerText = "Ralat semasa mendengar.";
+      };
+    }
+  </script>
+
+</body>
+</html>
+
