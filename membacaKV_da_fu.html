@@ -116,6 +116,9 @@
           if (currentIndex < words.length) {
             setTimeout(() => {
               document.getElementById("wordDisplay").innerText = words[currentIndex];
+              if (currentIndex === 3 ) {
+                  document.getElementById("wordDisplay").innerText = words[currentIndex] + "’";
+              }
               document.getElementById("result").innerText = "";
             }, 1200);
           } else {
