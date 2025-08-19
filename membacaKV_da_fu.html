@@ -107,6 +107,12 @@
         }else if(spoken==="fair" || spoken==="first"){
           spoken= "fe";
         
+        }else if(spoken==="four"){
+          spoken= "fo";
+          
+        }else if(spoken==="far"){
+          spoken= "fa";
+          
         }else {
 
         }
@@ -122,7 +128,7 @@
           if (currentIndex < words.length) {
             setTimeout(() => {
               document.getElementById("wordDisplay").innerText = words[currentIndex];
-              if (currentIndex === 3 ) {
+              if (currentIndex === 3 || currentIndex === 9) {
                   document.getElementById("wordDisplay").innerText = words[currentIndex] + "’";
               }
               document.getElementById("result").innerText = "";
