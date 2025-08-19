@@ -2,7 +2,7 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <title>KV</title>
+  <title>Asas Membaca</title>
   <style>
     body {
       font-family: Comic Sans MS, sans-serif;
@@ -32,199 +32,21 @@
 </head>
 <body>
 
-  <h1>📄Membaca KV 📄</h1>
+  <h1>📄Asas Membaca 📄</h1>
 
   <div id="game" style="display:none;">
-    <div class="word" id="wordDisplay"></div>
-    <button onclick="startReading()" id="sebutButang">🎤 Mula Baca</button>
-    <div id="result"></div>
-    <div id="score">Skor: 0</div>
+    
     <br>
-    <a href="https://cikguarif.github.io/Game-Membaca/membacaVKV" id="pautan" style="display: none;">Klik sini untuk membaca VKV</a>
+    <a href="https://cikguarif.github.io/Game-Membaca/membacaKV" id="pautan" style="display: inline;">Klik sini untuk membaca KV</a>
   </div>
 
   <script>
-    let words = [];
-    let currentIndex = 0;
-    let score = 0;
-
-    // Auto load txt file on page load
-    fetch("perkataan.txt")
-      .then(response => response.text())
-      .then(text => {
-        words = text.split(/\r?\n/).filter(Boolean);
-        if (words.length > 0) {
-                    
-          document.getElementById("wordDisplay").innerText = words[currentIndex];
-          document.getElementById("game").style.display = "block";
-        } else {
-          alert("Fail perkataan kosong.");
-        }
-      })
-      .catch(err => {
-        alert("Gagal baca fail 'perkataan.txt'");
-        console.error(err);
-      });
-
-    function startReading() {
-      if (!('webkitSpeechRecognition' in window)) {
-        alert("Sila guna Google Chrome.");
-        return;
-      }
-
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "ms-MY";
-      //recognition.lang = "en-US";  // English (United States)
-      //recognition.lang = "ar-SA";
-      
-      recognition.interimResults = false;
-      recognition.maxAlternatives = 1;
-
-      recognition.start();
-      document.getElementById("result").innerText = "🎧 Mendengar...";
-
-      recognition.onresult = (event) => {
-        let spoken = event.results[0][0].transcript.toLowerCase().trim();
-
-        if (spoken === "cu"){
-          spoken = "chu";
-        }
-        const sukuKata = spoken.slice(0, 2);
-        const sukuKata3 = spoken.slice(0, 3);
-        const target = words[currentIndex];
-
-        /*
-        if (sukuKata === "ba") {
-          //spoken = "ba ba";
-          //alert("Betul h!");
-
-        }else if (sukuKata ==="b") {
-          //sukuKata = "ii";
-          //alert("Betul ii!");
-
-        } else {
-
-        }
-        */
-        
-        if (sukuKata === target) {
-          score++;
-          document.getElementById("score").innerText = "Skor: " + score;
-          document.getElementById("result").innerHTML = `✔️ Betul`;
-          /*
-          if (words[currentIndex] === "b") {
-            document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata}i"`;
-          }else{
-            document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata}"`;
-
-          }
-          */
-          currentIndex++;
-
-          if (currentIndex < words.length) {
-            setTimeout(() => {
-
-              if (words[currentIndex] === "b") {
-               
-                document.getElementById("wordDisplay").innerText = words[currentIndex] + "i";
     
-              }else if (words[currentIndex] === "cha") {
-                document.getElementById("wordDisplay").innerText = "ca";
-              }else{
-               
-                document.getElementById("wordDisplay").innerText = words[currentIndex];
-              }
-
-              if (currentIndex === 3 ) {
-                  document.getElementById("wordDisplay").innerText = words[currentIndex] + "’";
-              }
-
-                
-              document.getElementById("result").innerText = "";
-            }, 1200);
-          } else {
-            document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
-            document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
-            document.getElementById("sebutButang").disabled = true;
-            document.getElementById("sebutButang").innerText = "Terima Kasih";
-            document.getElementById("pautan").style.display = "inline";
-          }
-        }else if (sukuKata3 === target) {
-          /////////////////////////////////////////////////sukuKata3/////////////
-          score++;
-          document.getElementById("score").innerText = "Skor: " + score;
-          document.getElementById("result").innerHTML = `✔️ Betul`;
-          /*
-          if (words[currentIndex] === "cha") {
-            document.getElementById("result").innerHTML = `✔️ Betul: ca`;
-          }else if(words[currentIndex] === "chi"){
-
-            document.getElementById("result").innerHTML = `✔️ Betul: ci`;
-                             
-          }else{
-            //document.getElementById("result").innerHTML = `✔️ Betul: "${sukuKata3}"`;
-
-          }
-          */
-          currentIndex++;
-
-          if (currentIndex < words.length) {
-            setTimeout(() => {
-
-              if (words[currentIndex] === "chi") {
-               
-                document.getElementById("wordDisplay").innerText = "ci";
-    
-              }else if(words[currentIndex] === "che"){
-
-                if (currentIndex === 9 ) {
-                  document.getElementById("wordDisplay").innerText = "ce’";
-                }else{
-                 document.getElementById("wordDisplay").innerText = "ce";
-                }
-                
-              }else if(words[currentIndex] === "cho"){
-                document.getElementById("wordDisplay").innerText = "co";
-                
-              }else if(words[currentIndex] === "chu"){
-                document.getElementById("wordDisplay").innerText = "cu";
-                
-              }else{
-               
-                document.getElementById("wordDisplay").innerText = words[currentIndex];
-              }
-
-              
-
-                
-              document.getElementById("result").innerText = "";
-            }, 1200);
-          } else {
-            document.getElementById("wordDisplay").innerText = "🎉 Tamat!";
-            document.getElementById("result").innerText = "Tahniah! Anda telah habis membaca semua perkataan.";
-            document.getElementById("sebutButang").disabled = true;
-            document.getElementById("sebutButang").innerText = "Terima Kasih";
-            document.getElementById("pautan").style.display = "inline";
-          }
-
-          //////////////////////////////////////////////////////////////////////sukuKata3/////////////
-
-        }     
-        else {
-          document.getElementById("result").innerHTML = `❌ Anda sebut: "${spoken}". Cuba lagi.`;
-          
-         // document.getElementById("result").innerHTML = `❌ Anda sebut: "${sukuKata}". Cuba lagi.`;
-        }
-      };
-
-      recognition.onerror = () => {
-        document.getElementById("result").innerText = "Ralat semasa mendengar.";
-      };
-    }
   </script>
 
 </body>
 </html>
+
 
 
 
