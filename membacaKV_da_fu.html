@@ -89,6 +89,20 @@
         const spoken = event.results[0][0].transcript.toLowerCase().trim();
         const target = words[currentIndex];
 
+ //////////////adjust/////////////////////       
+        if (spoken === "dah") {
+          spoken = "da";
+          //alert("Betul h!");
+
+        }else if (spoken ==="d") {
+          spoken = "di";
+          //alert("Betul ii!");
+
+        } else {
+
+        }
+        
+///////////finish adjust/////////////////////////
         if (spoken === target) {
           score++;
           sounds.correct.play();
