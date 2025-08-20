@@ -90,12 +90,13 @@
         let spoken = event.results[0][0].transcript.toLowerCase().trim();
         const target = words[currentIndex];
 
- //////////////adjust/////////////////////       
-      /* 
-        if (spoken === "neh" || spoken === "nay" || spoken==="nei") {
-          spoken = "ne";
-          //alert("Betul h!");
+ //////////////adjust///////////////////// 
 
+      
+        if (spoken === "قاقي") {
+          spoken = "qa qi";
+          //alert("Betul h!");
+ /*
         }else if (spoken ==="nur" || spoken==="ner") {
           spoken = "ne’";
           //alert("Betul ii!");
@@ -124,11 +125,11 @@
         }else if (spoken ==="co") {
           spoken = "ko";
           //alert("Betul ii!");
-
+ */
         }else {
 
         }
-        */
+       
 ///////////finish adjust/////////////////////////
         if (spoken === target) {
           score++;
