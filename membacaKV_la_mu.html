@@ -90,23 +90,21 @@
         const target = words[currentIndex];
 
  //////////////adjust/////////////////////       
-       /*
-        if (spoken === "g") {
-          spoken = "ji";
+       
+        if (spoken === "lee") {
+          spoken = "li";
           //alert("Betul h!");
 
-        }else if (spoken ==="j") {
-          spoken = "je";
+        }else if (spoken ==="low" || spoken==="law") {
+          spoken = "lo";
           //alert("Betul ii!");
 
-        }else if (spoken ==="je") {
-          spoken = "je’";
+        }else if (spoken ==="le" && words[currentIndex]==="le’") {
+          spoken = "le’";
           //alert("Betul ii!");
 
-        }else if (spoken ==="car") {
-          spoken = "ka";
-          //alert("Betul ii!");
-
+        
+/*
         }else if (spoken ==="key") {
           spoken = "ki";
           //alert("Betul ii!");
@@ -122,11 +120,11 @@
         }else if (spoken ==="co") {
           spoken = "ko";
           //alert("Betul ii!");
-
+ */
         }else {
 
         }
-        */
+       
 ///////////finish adjust/////////////////////////
         if (spoken === target) {
           score++;
