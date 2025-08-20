@@ -90,37 +90,23 @@
         const target = words[currentIndex];
 
  //////////////adjust/////////////////////       
-       /*
-        if (spoken === "gah") {
-          spoken = "ga";
+       
+        if (spoken === "g") {
+          spoken = "ji";
           //alert("Betul h!");
 
-        }else if (spoken ==="g") {
-          spoken = "gi";
+        }else if (spoken ==="j") {
+          spoken = "je";
           //alert("Betul ii!");
 
-        }else if(spoken==="girl" || spoken==="gay" ){
-          spoken = "ge";
-          
-        }else if(spoken==="goo"){
-          spoken= "gu";
-          
-        }else if(spoken==="he"){
-          spoken= "hi";
-          
-        }else if(spoken==="hei" || spoken==="hey" || spoken ==="her"){
-          spoken= "he";
-          
-        }else if((spoken==="how" || spoken==="hu") && words[currentIndex]==="ho"){
-          spoken= "ho";
-          
-        }else if(spoken==="who"){
-          spoken= "hu";
-          
+        }else if (spoken ==="je") {
+          spoken = "je’";
+          //alert("Betul ii!");
+
         }else {
 
         }
-        */
+        
 ///////////finish adjust/////////////////////////
         if (spoken === target) {
           score++;
@@ -132,9 +118,9 @@
           if (currentIndex < words.length) {
             setTimeout(() => {
               document.getElementById("wordDisplay").innerText = words[currentIndex];
-              if (currentIndex === 3 || currentIndex === 9) {
-                  document.getElementById("wordDisplay").innerText = words[currentIndex] + "’";
-              }
+              //if (currentIndex === 3 || currentIndex === 9) {
+                //  document.getElementById("wordDisplay").innerText = words[currentIndex] + "’";
+              //}
               document.getElementById("result").innerText = "";
             }, 1200);
           } else {
