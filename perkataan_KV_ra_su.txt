@@ -4,3 +4,9 @@ re
 re’
 ro
 ru
+sa
+si
+se
+se’
+so
+su
