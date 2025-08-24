@@ -90,44 +90,44 @@
         const target = words[currentIndex];
 
  //////////////adjust/////////////////////       
-    /*
-        if (spoken === "re" && words[currentIndex] ==="ri") {
-          spoken = "ri";
+    
+        if (spoken === "tar") {
+          spoken = "ta";
           //alert("Betul h!");
 
-        }else if (spoken ==="rar") {
-          spoken = "re";
+        }else if (spoken ==="t") {
+          spoken = "ti";
           //alert("Betul ii!");
 
-        }else if (spoken ==="ra" && words[currentIndex] ==="re’") {
-          spoken = "re’";
+        }else if (spoken ==="teh" ) {
+          spoken = "te";
           //alert("Betul ii!");
 
+       
+
+        }else if ((spoken ==="toh" || spoken ==="tor" || spoken==="tu") && words[currentIndex]==="to") {
+          spoken = "to";
+          //alert("Betul ii!");
+
+        }else if (spoken ==="v") {
+          spoken = "vi";
         
-
-        }else if (spoken ==="raw") {
-          spoken = "ro";
-          //alert("Betul ii!");
-
-        }else if (spoken ==="sah") {
-          spoken = "sa";
-        
-        }else if (spoken ==="c") {
-          spoken = "si";
+        }else if (spoken ==="vee") {
+          spoken = "ve";
           //alert("Betul ii!");
  
-        }else if (spoken ==="share") {
-          spoken = "se";
+        }else if ((spoken ==="verse" || spoken==="v") && words[currentIndex]==="ve’") {
+          spoken = "ve’";
           //alert("Betul ii!");
-
+/* 
         }else if (spoken ==="sir") {
           spoken = "se’";
           //alert("Betul ii!");
-
+*/
         }else {
 
         }
-        */
+        
 ///////////finish adjust/////////////////////////
         if (spoken === target) {
           score++;
