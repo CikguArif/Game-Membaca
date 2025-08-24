@@ -90,25 +90,25 @@
         const target = words[currentIndex];
 
  //////////////adjust/////////////////////       
-     /*
-        if (spoken === "neh" || spoken === "nay" || spoken==="nei") {
-          spoken = "ne";
+    
+        if (spoken === "re" && words[currentIndex] ==="ri") {
+          spoken = "ri";
           //alert("Betul h!");
 
-        }else if (spoken ==="nur" || spoken==="ner") {
-          spoken = "ne’";
+        }else if (spoken ==="rar") {
+          spoken = "re";
           //alert("Betul ii!");
 
-        }else if (spoken ==="pair" || spoken==="peh" || spoken==="pay" || spoken ==="pear") {
-          spoken = "pe";
+        }else if (spoken ==="ra" && words[currentIndex] ==="re’") {
+          spoken = "re’";
           //alert("Betul ii!");
 
         
 
-        }else if (spoken ==="pe") {
-          spoken = "pe’";
+        }else if (spoken ==="raw") {
+          spoken = "ro";
           //alert("Betul ii!");
-
+ /*
         }else if (spoken ==="por" || spoken==="paul") {
           spoken = "po";
         
@@ -123,11 +123,11 @@
         }else if (spoken ==="co") {
           spoken = "ko";
           //alert("Betul ii!");
-
+*/
         }else {
 
         }
-        */
+        
 ///////////finish adjust/////////////////////////
         if (spoken === target) {
           score++;
