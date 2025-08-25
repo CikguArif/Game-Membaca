@@ -105,7 +105,15 @@
 
       
 
-        }else if (spoken ==="zer") {
+        }else if (spoken ==="z" &&  words[currentIndex] ==="zi") {
+          spoken = "zi";
+          //alert("Betul ii!");
+
+        }else if (spoken ==="z" &&  words[currentIndex] ==="ze") {
+          spoken = "ze";
+          //alert("Betul ii!");
+
+        }else if ((spoken ==="zer" || spoken==="ze") &&  words[currentIndex] ==="ze’") {
           spoken = "ze’";
           //alert("Betul ii!");
 
