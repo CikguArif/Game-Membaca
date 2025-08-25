@@ -10,15 +10,22 @@
       background:
        #e0f7fa
        url("img/img1.png")
-       center / cover no-repeat fixed;
-       rgba(255,255,255,.5); /* boleh ubah 0–0.3 ikut keselesaan */
+       center / cover no-repeat fixed;       
       padding: 30px;
-
+/*
       display: flex;
-      flex-direction: column;   /* susun anak flex menegak (atas ke bawah) */
-      justify-content: center;  /* centerkan secara menegak */
-      align-items: center;      /* centerkan secara mendatar */
-      min-height: 100vh;        /* penuh tinggi skrin */
+      flex-direction: column;   
+      #justify-content: center; 
+      #align-items: center;     
+      #min-height: 100vh;       */
+      
+    }
+
+    #game {
+      position: absolute; /* atau relative ikut parent */
+      top: 30%;           /* 30% dari atas viewport */
+      left: 50%;          /* horizontally center */
+      transform: translateX(-50%); /* center secara horizontal */
     }
     
       
@@ -42,6 +49,7 @@
 
 </body>
 </html>
+
 
 
 
