@@ -2,8 +2,14 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asas Membaca</title>
   <style>
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: Comic Sans MS, sans-serif;
       text-align: center;
@@ -21,18 +27,41 @@
       
     }
 
+    /* Tajuk h1 di atas */
     h1 {
-      text-align: center;       /* Letak h1 di tengah horizontal */
-      margin-bottom: 20px;      /* Jarak antara h1 dan #game */
+      text-align: center;        /* Center horizontal */
+      margin-top: 20px;          /* Jarak dari atas skrin */
+      margin-bottom: 20px;       /* Jarak antara h1 dan #game */
+      font-size: 2rem;           /* Saiz font responsif */
+      color: #333;
     }
 
     #game {
-      position: absolute; /* atau relative ikut parent */
-      top: 30%;           /* 30% dari atas viewport */
-      left: 50%;          /* horizontally center */
-      transform: translateX(-50%); /* center secara horizontal */
+    position: relative;        /* Relatif supaya fleksibel */
+    top: 30vh;                 /* 30% dari tinggi viewport */
+    width: 90%;                /* Responsive: ikut lebar skrin */
+    max-width: 400px;          /* Maksimum lebar kotak */
+    height: 300px;
+    background: rgba(255, 255, 255, 0.18); /* 18% opacity */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Responsive untuk skrin kecil */
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 1.5rem;
     }
-    
+
+    #game {
+      height: 250px;
+    }
+  }
       
   </style>
 </head>
@@ -54,6 +83,7 @@
 
 </body>
 </html>
+
 
 
 
