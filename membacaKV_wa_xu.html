@@ -91,11 +91,11 @@
 
  //////////////adjust/////////////////////       
     
-        if (spoken === "war" ) {
+        if (spoken === "war" || spoken ==="wah" ) {
           spoken = "wa";
           //alert("Betul h!");
 
-        }else if (spoken ==="wii") {
+        }else if ((spoken ==="wii" || spoken ==="we" ) &&  words[currentIndex] ==="wi") {
           spoken = "wi";
           //alert("Betul ii!");
 
@@ -132,7 +132,7 @@
           spoken = "xe’";
           //alert("Betul ii!");
 
-        }else if ((spoken ==="zoo" || spoken === "zo") && words[currentIndex] ==="xo") {
+        }else if ((spoken ==="zoo" || spoken === "zo" || spoken==="zor") && words[currentIndex] ==="xo") {
           spoken = "xo";
           //alert("Betul ii!");
 
