@@ -90,44 +90,56 @@
         const target = words[currentIndex];
 
  //////////////adjust/////////////////////       
-    /*
-        if (spoken === "re" && words[currentIndex] ==="ri") {
-          spoken = "ri";
+    
+        if (spoken === "war" ) {
+          spoken = "wa";
           //alert("Betul h!");
 
-        }else if (spoken ==="rar") {
-          spoken = "re";
+        }else if (spoken ==="wii") {
+          spoken = "wi";
           //alert("Betul ii!");
 
-        }else if (spoken ==="ra" && words[currentIndex] ==="re’") {
-          spoken = "re’";
+        }else if (spoken ==="world") {
+          spoken = "we’";
           //alert("Betul ii!");
 
-        
+      
 
-        }else if (spoken ==="raw") {
-          spoken = "ro";
-          //alert("Betul ii!");
-
-        }else if (spoken ==="sah") {
-          spoken = "sa";
-        
-        }else if (spoken ==="c") {
-          spoken = "si";
+        }else if (spoken ==="where") {
+          spoken = "we";
           //alert("Betul ii!");
  
-        }else if (spoken ==="share") {
-          spoken = "se";
+        }else if (spoken ==="who") {
+          spoken = "wu";
+        
+        }else if (spoken ==="za" && words[currentIndex] ==="xa") {
+          spoken = "xa";
+          //alert("Betul ii!");
+ 
+        }else if ((spoken ==="zi" || spoken ==="zee" || spoken==="z")  && words[currentIndex] ==="xi" ) {
+          spoken = "xi";
           //alert("Betul ii!");
 
-        }else if (spoken ==="sir") {
-          spoken = "se’";
+        }else if ((spoken ==="ze" || spoken ==="z") && words[currentIndex] ==="xe") {
+          spoken = "xe";
+          //alert("Betul ii!");
+
+        }else if (spoken ==="ze" && words[currentIndex] ==="xe’") {
+          spoken = "xe’";
+          //alert("Betul ii!");
+
+        }else if ((spoken ==="zoo" || spoken === "zo") && words[currentIndex] ==="xo") {
+          spoken = "xo";
+          //alert("Betul ii!");
+
+        }else if ((spoken ==="zoo" || spoken === "zu") && words[currentIndex] ==="xu") {
+          spoken = "xu";
           //alert("Betul ii!");
 
         }else {
 
         }
-        */
+        
 ///////////finish adjust/////////////////////////
         if (spoken === target) {
           score++;
