@@ -20,6 +20,14 @@
       min-height: 100vh;        /* penuh tinggi skrin */
     }
     
+      body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,.18); /* boleh ubah 0–0.3 ikut keselesaan */
+      pointer-events: none;
+    }
+    
   </style>
 </head>
 <body>
@@ -40,6 +48,7 @@
 
 </body>
 </html>
+
 
 
 
