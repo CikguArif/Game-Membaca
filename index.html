@@ -72,6 +72,8 @@
 </head>
 <body>
 
+  <audio id="bgSound" src="sound/background.mp3" loop></audio>
+
   <h1>📄Asas Membaca📄</h1>
  
   <div id="game">
@@ -141,11 +143,17 @@
   </div>
 
   <script>
-    
+    window.addEventListener("load", () => {
+      const audio = document.getElementById("bgSound");
+      audio.play().catch(err => {
+        console.log("Autoplay blocked. User interaction required.");
+      });
+    });
   </script>
 
 </body>
 </html>
+
 
 
 
