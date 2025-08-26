@@ -146,17 +146,41 @@
   <script>
     
   document.body.onmousemove = () => {
-    const audio = document.getElementById("bgSound");
+ /*   const audio = document.getElementById("bgSound");
     if (audio.paused) {
       audio.volume = 0.3;
       audio.play();
     }
   };
-    
+   */
+
+  const audio = document.getElementById("bgSound");
+  let inactivityTimer;
+
+  // Fungsi untuk mula main muzik
+  function startMusic() {
+    if (audio.paused) {
+      audio.volume = 0.3;
+      audio.play();
+    }
+    resetInactivityTimer();
+  }
+
+  // Fungsi untuk berhenti muzik selepas tempoh tertentu
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+      audio.pause();
+    }, 22000); // 10 saat tanpa gerakan
+  }
+
+  // Trigger bila mouse bergerak
+  document.body.onmousemove = startMusic;
   </script>
 
 </body>
 </html>
+
 
 
 
