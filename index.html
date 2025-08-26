@@ -144,15 +144,20 @@
   </div>
 
   <script>
-   function playSound() {
+    
+  window.addEventListener("load", () => {
     const audio = document.getElementById("bgSound");
-    audio.volume = 0.3; // volume 30%
-    audio.play();
-  }
+    audio.volume = 0.5; // volume 30%
+    audio.play().catch(() => {
+      console.log("Autoplay disekat. Perlu interaksi pengguna.");
+    });
+  });
+    
   </script>
 
 </body>
 </html>
+
 
 
 
