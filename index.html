@@ -73,7 +73,7 @@
 <body>
 
   <audio id="bgSound" src="sound/background.mp3" loop></audio>
-  <button onclick="playSound()">Mainkan Muzik</button>
+  <!--<button onclick="playSound()">Mainkan Muzik</button> -->
 
   <h1>📄Asas Membaca📄</h1>
  
@@ -145,18 +145,19 @@
 
   <script>
     
-  window.addEventListener("load", () => {
+document.body.onmousemove = () => {
     const audio = document.getElementById("bgSound");
-    audio.volume = 0.5; // volume 30%
-    audio.play().catch(() => {
-      console.log("Autoplay disekat. Perlu interaksi pengguna.");
-    });
-  });
+    if (audio.paused) {
+      audio.volume = 0.3;
+      audio.play();
+    }
+  };
     
   </script>
 
 </body>
 </html>
+
 
 
 
