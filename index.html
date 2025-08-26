@@ -160,7 +160,7 @@
   // Fungsi untuk mula main muzik
   function startMusic() {
     if (audio.paused) {
-      audio.volume = 0.3;
+      audio.volume = 0.1;
       audio.play();
     }
     resetInactivityTimer();
@@ -171,7 +171,7 @@
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(() => {
       audio.pause();
-    }, 22000); // 10 saat tanpa gerakan
+    }, 20000); // saat tanpa gerakan
   }
 
   // Trigger bila mouse bergerak
@@ -180,6 +180,7 @@
 
 </body>
 </html>
+
 
 
 
