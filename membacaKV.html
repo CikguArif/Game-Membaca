@@ -45,7 +45,7 @@
     <br>
     <a href="https://cikguarif.github.io/Game-Membaca/membacaVKV" id="pautan" style="display: none;">Klik sini untuk membaca VKV</a>
     <br>
-    <a href="https://cikguarif.github.io/Game-Membaca" id="pautan" style="display: none;">Halaman Utama</a>
+    <a href="https://cikguarif.github.io/Game-Membaca" id="pautan2" style="display: none;">Halaman Utama</a>
   </div>
 
   <script>
@@ -83,7 +83,7 @@
         return;
       }
 
-      const recognition = new webkitSpeechRecognition();
+      let recognition = new webkitSpeechRecognition();
       recognition.lang = "ms-MY";
       //recognition.lang = "en-US";  // English (United States)
       //recognition.lang = "ar-SA";
@@ -99,16 +99,18 @@
 
         if (spoken === "cu"){
           spoken = "chu";
+        }else if(spoken === "cow"){
+           spoken = "cho";
         }
         const sukuKata = spoken.slice(0, 2);
         const sukuKata3 = spoken.slice(0, 3);
         const target = words[currentIndex];
 
-        /*
-        if (sukuKata === "ba") {
-          //spoken = "ba ba";
+    /*  
+        if (sukuKata === "cow") {
+         spoken = "ba ba";
           //alert("Betul h!");
-
+ 
         }else if (sukuKata ==="b") {
           //sukuKata = "ii";
           //alert("Betul ii!");
@@ -116,7 +118,7 @@
         } else {
 
         }
-        */
+       */
         
         if (sukuKata === target) {
           score++;
@@ -161,6 +163,7 @@
             document.getElementById("sebutButang").disabled = true;
             document.getElementById("sebutButang").innerText = "Terima Kasih";
             document.getElementById("pautan").style.display = "inline";
+            document.getElementById("pautan2").style.display = "inline";
           }
         }else if (sukuKata3 === target) {
           /////////////////////////////////////////////////sukuKata3/////////////
@@ -220,6 +223,7 @@
             document.getElementById("sebutButang").disabled = true;
             document.getElementById("sebutButang").innerText = "Terima Kasih";
             document.getElementById("pautan").style.display = "inline";
+             document.getElementById("pautan2").style.display = "inline";
           }
 
           //////////////////////////////////////////////////////////////////////sukuKata3/////////////
