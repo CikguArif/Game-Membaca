@@ -83,7 +83,7 @@
         return;
       }
 
-      let recognition = new webkitSpeechRecognition();
+      const recognition = new webkitSpeechRecognition();
       recognition.lang = "ms-MY";
       //recognition.lang = "en-US";  // English (United States)
       //recognition.lang = "ar-SA";
@@ -97,14 +97,16 @@
       recognition.onresult = (event) => {
         let spoken = event.results[0][0].transcript.toLowerCase().trim();
 
+        
+        const sukuKata = spoken.slice(0, 2);
+        const sukuKata3 = spoken.slice(0, 3);
+        const target = words[currentIndex];
+
         if (spoken === "cu"){
           spoken = "chu";
         }else if(spoken === "cow"){
            spoken = "cho";
         }
-        const sukuKata = spoken.slice(0, 2);
-        const sukuKata3 = spoken.slice(0, 3);
-        const target = words[currentIndex];
 
     /*  
         if (sukuKata === "cow") {
