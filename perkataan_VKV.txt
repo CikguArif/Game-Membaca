@@ -8,3 +8,6 @@ ini
 oni
 ubi
 uli
+ini ubi
+ini ubi umi
+umi ada ubi
